@@ -5,6 +5,6 @@ export interface MainState {
   mainState: fromMainStore.MainState;
 }
 
-export const mainState: ActionReducerMap<MainState> = {
+export const mainStateReducer: ActionReducerMap<MainState> = {
   mainState: fromMainStore.mainReducer
 };

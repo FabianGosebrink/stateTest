@@ -1,11 +1,15 @@
 import { Action } from '@ngrx/store';
 
+export interface AppState {
+  mainState: MainState;
+}
+
 export interface MainState {
   currentlyLoading: boolean;
   entities: { [id: string]: any };
 }
 
-export const initialState: MainState = {
+const initialState: MainState = {
   currentlyLoading: false,
   entities: {}
 };
@@ -18,5 +22,7 @@ export function mainReducer(
   return state;
 }
 
-export const getCurrentlyLoading = (state: MainState) => state.currentlyLoading;
-export const getCustomerList = (state: MainState) => state.entities;
+export const selectMainStateFromReducer = (state: AppState) => state.mainState;
+export const getCurrentlyLoadingFromReducer = (state: MainState) =>
+  state.currentlyLoading;
+export const getCustomerListFromReducer = (state: MainState) => state.entities;

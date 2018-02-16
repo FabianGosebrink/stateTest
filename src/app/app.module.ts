@@ -4,15 +4,11 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { FirstModule } from './first/first.module';
 import { StoreModule, Action, ActionReducerMap } from '@ngrx/store';
-import * as fromReducers from './store/reducers';
+import { mainStateReducer } from './store/reducers';
 
 @NgModule({
   declarations: [AppComponent],
-  imports: [
-    BrowserModule,
-    FirstModule,
-    StoreModule.forRoot(fromReducers.mainState)
-  ],
+  imports: [BrowserModule, FirstModule, StoreModule.forRoot(mainStateReducer)],
   providers: [],
   bootstrap: [AppComponent]
 })
